@@ -1,0 +1,6 @@
+,Type,File,Address
+0,Data,WRI,Wave2Web2021/data/processed/WRI/all_wri_jan2011_dec2020.csv
+1,Data,IndiaWRIS,Wave2Web2021/data/processed/IndiaWRIS/all_indiawris_jan2001_may2021.csv
+2,Model,LSTM,Wave2Web2021/fitted_models/lstm_uni_weights.h5
+3,Model,SVR,Wave2Web2021/fitted_models/SVR_UNI.sav
+4,Model,XGBOOST,Wave2Web2021/fitted_models/XGB_uni.sav

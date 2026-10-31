@@ -1,0 +1,28 @@
+Option,Key,Value
+Reservoir,Select a Reservoir,0
+Reservoir,All,1
+Reservoir,Harangi,2
+Reservoir,Hemavathi,3
+Reservoir,Kabini,4
+Reservoir,KRS,5
+Algorithm,Select an Algorithm,0
+Algorithm,Ensemble(mean),1
+Algorithm,Ensemble(weighted),2
+Algorithm,XG Boost,3
+Algorithm,SVR,4
+Algorithm,Facebook Prophet,5
+Algorithm,LSTM,6
+Time Period,Select a Time Period,0
+Time Period,1 Day,1
+Time Period,1 Week,7
+Time Period,2 Weeks,14
+Time Period,3 Weeks,21
+Time Period,1 Month,30
+Time Period,2 Months,60
+Time Period,3 Months,90
+Time Period,4 Months,120
+Time Period,5 Months,150
+Time Period,6 Months,180
+Time Period,1 Year,365
+Feature Toggle,Without Weather Features(Univariate),0
+Feature Toggle,With Weather Features(Multivariate),1

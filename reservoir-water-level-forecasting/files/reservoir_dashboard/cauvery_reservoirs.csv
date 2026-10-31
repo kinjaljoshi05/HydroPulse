@@ -1,0 +1,5 @@
+,Dam/Reservoir,River,Location,Storage capacity (tmcft),Reservoir level (m),Height of Dam (m),Length of Dam (m),No. of Gates,Type,Reservoir Area (km�),Completed year,Purpose,Lat,Long,text
+2,Harangi Reservoir,Harangi,"Hudgur, Somawarapete taluk, Kodagu district",8.07,871.42,53.0,845.8,4.0,"Earth-fill, Gravity & Masonry dam",19.081,1982,Irrigation & Hydroelectric,12.51983,75.85316,Harangi Reservoir<br>Storage Capacity(tmcft) 8.07 tmcft
+1,Kabini Reservoir,Kabini,"Heggadadevanakote Taluk, Mysore",19.52,696,59.44,2732.0,4.0,"Earth-fill, Gravity & Masonry dam",-,1974,Irrigation & Hydroelectric,12.23163,76.45979,Kabini Reservoir<br>Storage Capacity(tmcft) 19.52 tmcft
+0,Hemavathi Reservoir,Hemavathi,"Gorur, Hassan district",35.76,489.63,58.5,4692.0,6.0,"Earth-fill, Masonry dam, Spillway & Gravity",85.02,1979,Irrigation,12.81987,76.02896,Hemavathi Reservoir<br>Storage Capacity(tmcft) 35.76 tmcft
+3,Krishna Raja Sagara Dam,Kaveri,Mandya,45.05,791,42.62,2621.0,18.0,Gravity & Masonry dam,107.808,1931,Irrigation & Hydroelectric,12.47694,76.42453,Krishna Raja Sagara Dam<br>Storage Capacity(tmcft) 45.05 tmcft
