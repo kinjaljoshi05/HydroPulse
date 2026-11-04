@@ -8,6 +8,7 @@
 
 import os
 import math
+import base64
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
@@ -17,6 +18,7 @@ import streamlit as st
 import joblib
 
 from config import (
+    BASE_DIR,
     SVR_MODEL_PATH, SCALER_PATH, DATA_OUT_PATH,
     METRICS_PATH, PRED_PATH, FEATURE_COLS, TARGET_COL,
 )
@@ -1022,6 +1024,59 @@ def kpi_card(label: str, value: str, subtext: str, accent_color: str) -> str:
 
 def section_title(text: str):
     st.markdown(f'<div class="hp-section-title">{text}</div>', unsafe_allow_html=True)
+
+
+def render_project_presentation_header():
+    """Renders the Somaiya institutional project header on the first page (Dashboard Overview)."""
+    logo_left_path = os.path.join(BASE_DIR, "assets", "somaiya_logo.png")
+    logo_right_path = os.path.join(BASE_DIR, "assets", "somaiya_trust_logo.png")
+
+    b64_left = ""
+    b64_right = ""
+    if os.path.exists(logo_left_path):
+        with open(logo_left_path, "rb") as f:
+            b64_left = base64.b64encode(f.read()).decode("ascii")
+    if os.path.exists(logo_right_path):
+        with open(logo_right_path, "rb") as f:
+            b64_right = base64.b64encode(f.read()).decode("ascii")
+
+    html_code = (
+        '<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;'
+        'padding:14px 22px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">'
+        '<div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;">'
+        '<div style="flex:0 0 auto;background:#ffffff;padding:6px 14px;border-radius:8px;'
+        'border:1px solid rgba(0,0,0,0.08);display:flex;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,0.03);">'
+        f'<img src="data:image/png;base64,{b64_left}" style="height:50px;width:auto;max-width:220px;object-fit:contain;display:block;" alt="Somaiya Logo" />'
+        '</div>'
+        '<div style="flex:1 1 450px;text-align:center;padding:0 8px;">'
+        '<div style="font-size:1.02rem;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;letter-spacing:-0.2px;">'
+        'Project 43: Machine Learning Approach for Predicting Hydropower Generation Deficits during El Niño Years using Support Vector Regression.'
+        '</div>'
+        '<div style="font-size:0.86rem;font-weight:600;color:var(--text-primary);margin-bottom:5px;">'
+        'Guide Name: <span style="color:var(--crimson,#9b1d2a);">Dr. Milind Nemade</span>'
+        '</div>'
+        '<div style="display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;'
+        'font-size:0.80rem;font-weight:500;color:var(--text-secondary);background:var(--bg-subtle);'
+        'padding:4px 16px;border-radius:20px;border:1px solid var(--border);">'
+        '<span>1. Kinjal Joshi – Roll No. 60</span>'
+        '<span style="color:var(--border-accent);opacity:0.7;">•</span>'
+        '<span>2. Garvit Kanani – Roll No. 61</span>'
+        '<span style="color:var(--border-accent);opacity:0.7;">•</span>'
+        '<span>3. Raj Vitmal – Roll No. 71</span>'
+        '</div>'
+        '</div>'
+        '<div style="flex:0 0 auto;background:#ffffff;padding:6px 14px;border-radius:8px;'
+        'border:1px solid rgba(0,0,0,0.08);display:flex;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,0.03);">'
+        f'<img src="data:image/png;base64,{b64_right}" style="height:50px;width:auto;max-width:140px;object-fit:contain;display:block;" alt="Somaiya Trust Logo" />'
+        '</div>'
+        '</div>'
+        '</div>'
+    )
+    if hasattr(st, "html"):
+        st.html(html_code)
+    else:
+        st.markdown(html_code, unsafe_allow_html=True)
+
 
 # ============================================================
 # PAGE: OVERVIEW
@@ -2312,10 +2367,14 @@ def main():
     st.session_state["pred_df"] = pred_df
     st.session_state["met_df"] = met_df
 
+    page = st.session_state.get("current_page", "Overview")
+
+    # ── Institutional presentation header at top of first page (Overview) ──
+    if page == "Overview":
+        render_project_presentation_header()
+
     # ── Top nav bar ──
     render_navbar()
-
-    page = st.session_state.get("current_page", "Overview")
 
     # ── Route to page ──
     if page == "Overview":
